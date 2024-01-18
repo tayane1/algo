@@ -1,0 +1,23 @@
+// Fonction pour calculer le produit scalaire de deux vecteurs
+fonction dot_product(v1, v2):
+    si longueur(v1) ≠ longueur(v2):
+        retourner "Les vecteurs ne sont pas de la même dimension"
+    sinon:
+        ps ← 0
+        pour i de 1 à longueur(v1):
+            ps ← ps + v1[i] * v2[i]
+        retourner ps
+
+// Algorithme pour déterminer si deux vecteurs sont orthogonaux
+algorithme vecteurs_orthogonaux(n, vecteurs):
+    pour k de 1 à n:
+        v1 ← vecteurs[k][1]
+        v2 ← vecteurs[k][2]
+        
+        // Appel de la fonction dot_product pour calculer le produit scalaire
+        ps ← dot_product(v1, v2)
+        
+        si ps = 0:
+            afficher "Les vecteurs v1 et v2 sont orthogonaux"
+        sinon:
+            afficher "Les vecteurs v1 et v2 ne sont pas orthogonaux"

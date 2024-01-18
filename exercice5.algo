@@ -1,0 +1,13 @@
+procedure triInsertion(arr)
+    n = longueur(arr)
+    pour i de 1 à n-1 faire
+        élémentActuel = arr[i]
+        j = i-1
+
+        // Déplacez les éléments plus grands vers la droite
+        tant que j >= 0 et arr[j] > élémentActuel faire
+            arr[j+1] = arr[j]
+            j = j-1
+
+        // Insérez l'élément à sa position correcte
+        arr[j+1] = élémentActuel
