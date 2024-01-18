@@ -1,0 +1,32 @@
+FUNCTION counting_sort(arr: ARRAY_OF INTEGER) : ARRAY_OF INTEGER
+VAR
+    output : ARRAY_OF INTEGER [30];
+    count : ARRAY_OF INTEGER [50];
+    i, max,size : INTEGER;
+BEGIN
+    size := arr.length-1;
+    max := arr[0];
+    FOR i FROM  1 TO size DO
+        IF (arr[i]> max) THEN
+            max := arr[i];
+        END_IF
+    END_FOR
+
+    
+    FOR i FROM 0 TO max DO
+        count[i] := 0;
+    END_FOR
+
+    
+    FOR i FROM 0 TO size DO
+        count[arr[i]] := count[arr[i]] +1;
+    END_FOR
+
+  
+    FOR i FROM size TO 0 STEP -1  DO
+        output[count[arr[i]]-1] = arr[i];
+        count[arr[i]] := count[arr[i]] -1;
+    END_FOR
+
+    RETURN output;
+END

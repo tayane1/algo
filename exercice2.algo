@@ -1,0 +1,39 @@
+//search
+PROCEDURE search(c: CHAR, str : STRING, VAR find : BOOLEAN, VAR pos : INTEGER)
+VAR
+    i : INTEGER;
+BEGIN
+    find := FALSE;
+    pos := -1;
+    WHILE (i < str.length AND NOT find) DO
+        IF (str[i] = c) THEN
+            pos := i;
+            find := TRUE;
+        END_IF
+        i:=i+1;
+    END_WHILE
+END
+
+// Delete once
+PROCEDURE delete(c: CHAR, str : STRING, VAR find : BOOLEAN)
+VAR
+    i, pos: INTEGER;
+BEGIN
+    search(c,str,find,pos);
+    IF (find) THEN
+        FOR i FROM pos TO str.length-2 DO
+            str[i]:=str[i+1];
+        END_FOR
+    END_IF
+END
+
+// Delete All
+
+PROCEDURE delete_all(c: CHAR, str : STRING)
+VAR
+    find : BOOLEAN := TRUE;
+BEGIN
+    WHILE (find) DO
+        delete(c,str,find);
+    END_WHILE
+END
